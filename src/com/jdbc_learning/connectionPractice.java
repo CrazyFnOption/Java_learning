@@ -1,4 +1,5 @@
-package com.wsx.jdbc_learning;
+package com.jdbc_learning;
+
 
 import com.mysql.cj.jdbc.Driver;
 import org.junit.Test;
@@ -9,7 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class jdbc_learning {
+public class connectionPractice {
 
     @Test
     public void testConnect() throws SQLException {
