@@ -4,7 +4,7 @@ package com.jdbc_learning;
 import com.mysql.cj.jdbc.Driver;
 import org.junit.Test;
 
-import java.io.IOException;
+
 import java.io.InputStream;
 import java.sql.Connection;
 
@@ -14,6 +14,12 @@ import java.util.Properties;
 
 public class connectionPractice {
 
+
+    // 记住sql里面进行添加 从外界接受的变量的话 ，可以直接用占位符来进行填充，可以有效的避免拼串。
+
+    // prepareStatementConnection的好处
+    // 1.可以操作Blob的数据，图片以及视频之类的
+    // 2.可以高效的批量执行sql语句
     @Test
     public void testConnect1() throws SQLException {
         Driver driver = new com.mysql.cj.jdbc.Driver();
