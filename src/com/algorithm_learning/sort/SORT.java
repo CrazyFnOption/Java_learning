@@ -205,28 +205,26 @@ public class SORT {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
 
-        //System.out.println("冒泡 :");
-        //s.maopao(n);
+        System.out.println("冒泡 :");
+        s.maopao(n);
 
-        //System.out.println("快速排序：");
-        //s.kuaisu(n);
+        System.out.println("快速排序：");
+        s.kuaisu(n);
 
-        //System.out.println("插入 :");
-        //s.charu(n);
+        System.out.println("插入 :");
+        s.charu(n);
 
-        //System.out.println("希尔 :");
-        //s.xier(n);
+        System.out.println("希尔 :");
+        s.xier(n);
 
-        //System.out.println("选择排序 :");
-        //s.xuanze(n);
+        System.out.println("选择排序 :");
+        s.xuanze(n);
 
-        //System.out.println("堆排序：");
-        //s.dui(n);
+        System.out.println("堆排序：");
+        s.dui(n);
 
         System.out.println("归并排序:");
         s.guibing(n);
 
     }
-
-
 }
