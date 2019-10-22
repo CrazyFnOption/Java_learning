@@ -8,7 +8,6 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class UDP {
-
     @Test
     public void send() throws IOException {
         DatagramSocket socket = new DatagramSocket();
