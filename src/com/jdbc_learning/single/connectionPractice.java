@@ -1,4 +1,4 @@
-package com.jdbc_learning;
+package com.jdbc_learning.single;
 
 
 import com.mysql.cj.jdbc.Driver;

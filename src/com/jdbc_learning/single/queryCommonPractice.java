@@ -1,4 +1,4 @@
-package com.jdbc_learning;
+package com.jdbc_learning.single;
 
 
 import com.jdbc_learning.util.jdbcUtil;
@@ -13,6 +13,7 @@ import java.util.List;
 
 // 这个类具体的作用就是去寻找不同类的返回类型
 // 根据类类首先相应的泛型 实现下面获取不同类的不同对象
+// 这里最重要的就是类的泛型
 
 public class queryCommonPractice {
 

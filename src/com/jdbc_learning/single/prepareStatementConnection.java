@@ -1,4 +1,4 @@
-package com.jdbc_learning;
+package com.jdbc_learning.single;
 
 import com.jdbc_learning.util.jdbcUtil;
 import org.junit.Test;
