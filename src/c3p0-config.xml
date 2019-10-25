@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+
+
+    <named-config name="hellc3p0">
+        <!--提供数据库链接的四种信息-->
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/test</property>
+        <property name="user">root</property>
+        <property name="password">w19971128</property>
+        <!--数据库链接池进行管理的基本信息-->
+        <!--当数据库链接池中链接数不够的时候，c3p0一次性向数据库链接池服务器申请的链接数-->
+        <property name="acquireIncrement">5</property>
+        <!--最先开始初始化的时候链接数-->
+        <property name="initialPoolSize">10</property>
+        <!--数据库服务器当中维护的最少的链接数-->
+        <property name="minPoolSize">10</property>
+        <!--数据库链接池维护最多的链接-->
+        <property name="maxPoolSize">100</property>
+        <!--c3p0数据库链接池中维护最多的Statement的个数-->
+        <property name="maxStatements">50</property>
+        <!--c3p0数据库链接池中每个链接中维护最多的Statement的个数-->
+        <property name="maxStatementsPerConnection">2</property>
+
+
+
+    </named-config>
+</c3p0-config>
