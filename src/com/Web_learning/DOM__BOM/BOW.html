@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>BOW</title>
+
+</head>
+<body>
+    <input id="_reload" type="button" value="刷新">
+    <input id="_goto" type="button" value="去其他网站">
+    <script>
+
+        /*
+            window对象的相关讲解
+            1. 将浏览器的各个组成部分封装成对象
+        *   2.BOM相应对象的说明
+        *   浏览器对象 Navigator
+        *   历史记录对象 History
+        *   地址栏对象 Location
+        *   窗口对象 Window 里面还包含了 DOM对象里面的 document对象
+        *   显示器对象 Screen
+        *   3.属性，可以获取其他相关对象
+            history
+            location : 地址栏对象 有刷新以及相应的访问方法。
+            navication
+            以上这三个可以直接进行获取上面的对象方法，可以不用window的方法，包括下面的document
+        首先先将window，window窗口对象不需要创建，可以直接使用，包括引用都可以直接省略。
+        */
+
+        // 第一类方法 弹出窗口
+        // prompt 输入框
+        // confirm 确认框
+        // alert("hello");     // 弹出一个警告框
+        // var flag = window.confirm("who");
+        // alert(flag);
+        // var res = prompt("请表达你的观点，谢谢！");
+        // var res = res.slice(0,1) + "也" + res.slice(1);
+        // alert(res);
+
+        // 第二类方法  打开与关闭
+        // 关闭的方法 有一个特点，谁调用我，我就去关闭谁
+        // var newwindow;
+        // var o = document.getElementById("openbtn");
+        // o.onclick = function () { newwindow = open("https:www.baidu.com") }
+        // var closewin = document.getElementById("closewin");
+        // closewin.onclick = function (ev) { newwindow.close()}
+
+        // 第三类方法 就是与定时器相关的方法
+        //     setTimeout()  在指定的毫秒后调用某些方法
+        //  参数  代码片段以及js代码，毫秒值
+        //     clearTimeout() 取消由前者方法设置的timeout的计时器
+        //     setInterval() 按照指定的周期调用韩式或者计算表达式
+
+        //  或者直接在这个地方进行调用一个函数名字就可以了
+        // setTimeout("alert('boom...')",3000);
+
+        var _reload = document.getElementById("_reload");
+        _reload.onclick = function (ev) { location.reload() }
+
+        var goto = document.getElementById("_goto");
+        goto.onclick = function (ev) {
+            location.href = "https://www.douban.com";
+        }
+
+
+    </script>
+</body>
+</html>

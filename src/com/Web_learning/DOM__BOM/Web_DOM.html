@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单学习dom</title>
+</head>
+<body>
+
+    <img id="light" src="../img/3.jpg" onclick="fun()">
+
+
+    <script>
+        var flag = false;
+        var light = document.getElementById("light");
+        light.onclick = function (ev) {
+            if (flag) {
+                light.src = "img/图片.jpg";
+                flag = false;
+            }
+            else {
+                light.src = "img/tupian.jpg";
+                flag = true;
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
