@@ -6,8 +6,8 @@
 
 </head>
 <body>
-    <input id="_reload" type="button" value="刷新">
-    <input id="_goto" type="button" value="去其他网站">
+    <input id="his" type="button" value="历史记录个数">
+
     <script>
 
         /*
@@ -15,8 +15,8 @@
             1. 将浏览器的各个组成部分封装成对象
         *   2.BOM相应对象的说明
         *   浏览器对象 Navigator
-        *   历史记录对象 History
-        *   地址栏对象 Location
+        *   历史记录对象 History 当前窗口对象的历史记录对象
+        *   地址栏对象 Location 有刷新 有跳转
         *   窗口对象 Window 里面还包含了 DOM对象里面的 document对象
         *   显示器对象 Screen
         *   3.属性，可以获取其他相关对象
@@ -54,14 +54,23 @@
         //  或者直接在这个地方进行调用一个函数名字就可以了
         // setTimeout("alert('boom...')",3000);
 
-        var _reload = document.getElementById("_reload");
-        _reload.onclick = function (ev) { location.reload() }
+        // location 相关函数
+        // var _reload = document.getElementById("_reload");
+        // _reload.onclick = function (ev) { location.reload() }
+        //
+        // var goto = document.getElementById("_goto");
+        // goto.onclick = function (ev) {
+        //     location.href = "https://www.douban.com";
+        // }
 
-        var goto = document.getElementById("_goto");
-        goto.onclick = function (ev) {
-            location.href = "https://www.douban.com";
+
+        // 相应前进后退的方法个数
+        // history.go(1) 或者 go(-1) 就相当于前进后退的意思了
+        var btn = document.getElementById("his");
+        his.onclick = function () {
+            var len = history.length;
+            alert(len);
         }
-
 
     </script>
 </body>

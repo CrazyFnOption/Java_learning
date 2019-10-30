@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOW对象学习</title>
+    <style>
+        table{
+            border: 1px solid;
+            margin: auto;
+            width: 500px;
+        }
+
+        td,th{
+            text-align: center;
+            border: 1px solid;
+        }
+        div{
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+<!--    <img id="imgg" src="../img/2.jpg" width="100%">;-->
+
+<!--    <p>-->
+<!--        <span id="times">5</span>秒之后，自动跳转首页....<br>-->
+<!--    </p>-->
+
+<div id = "input">
+    <input type="text" id="id" placeholder="请输入编号">
+    <input type="text" id="name" placeholder="请输入姓名">
+    <input type="text" id="gender" placeholder="请输入性别">
+    <input type="button" id="btn_add" value="添加">
+</div>
+
+<table>
+    <caption>人类信息采集表</caption>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>王舒啸</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" onclick="delTr(this)">删除</a> </td>
+    </tr>
+</table>
+    <script>
+        // 轮播图
+        // var num = 0;
+        // function fun() {
+        //     var imgg = document.getElementById("imgg");
+        //     var s = "../img/";
+        //     var tmp = ".jpg";
+        //     if (num <= 3) num++;
+        //     else num = 1;
+        //     s = s + num + tmp;
+        //     imgg.src = s;
+        // }
+        //
+        // setInterval(fun,3000);
+
+        // 自动跳转案例
+
+        // var num = 6;
+        // var times = document.getElementById("times");
+        // function fun() {
+        //     num--;
+        //     if (num <= 0) {
+        //         location.href = "https://www.baidu.com";
+        //         clearInterval();
+        //     }
+        //     times.innerHTML = num;
+        // }
+        // setInterval(fun,1000);
+
+        // 动态表格案例 结合前面相应的添加子节点，删除子节点相应的规则进行改变
+
+        // 相应的增加删除更改
+        var btn_add = document.getElementById("btn_add");
+
+
+        btn_add.onclick = function () {
+            var ii = document.getElementById("id");
+            var _name = document.getElementById("name");
+            var gender = document.getElementById("gender");
+
+            // var td1 = document.createElement("td");
+            // var td2 = document.createElement("td");
+            // var td3 = document.createElement("td");
+            //
+            // var tda = document.createElement("td");
+            // var ele_a = document.createElement("a");
+            // ele_a.setAttribute("href","javascript:void(0)");
+            // ele_a.setAttribute("onclick","delTr(this)");
+            // var text = document.createTextNode("删除");
+            // ele_a.appendChild(text);
+            // tda.appendChild(ele_a);
+            //
+            // td1.innerHTML = ii.value;
+            // td2.innerHTML = _name.value;
+            // td3.innerHTML = gender.value;
+            //
+            // var tr = document.createElement("tr");
+            // tr.appendChild(td1);
+            // tr.appendChild(td2);
+            // tr.appendChild(td3);
+            // tr.appendChild(tda)
+
+            // 下面就是一种更加简单的办法。 实现了上面所完成的功能
+            var table = document.getElementsByTagName("table")[0];
+            table.innerHTML += "<tr>\n" +
+                "        <td>"+ii.value+"</td>\n" +
+                "        <td>"+_name.value+"</td>\n" +
+                "        <td>"+gender.value+"</td>\n" +
+                "        <td><a href=\"javascript:void(0)\" onclick=\"delTr(this)\">删除</a> </td>\n" +
+                "    </tr>"
+            ii.value="";
+            _name.value="";
+            gender.value="";
+        }
+
+        function delTr(obj) {
+            var table = obj.parentNode.parentNode.parentNode;
+            var tr = obj.parentNode.parentNode;
+            table.removeChild(tr);
+        }
+
+    </script>
+
+</body>
+</html>

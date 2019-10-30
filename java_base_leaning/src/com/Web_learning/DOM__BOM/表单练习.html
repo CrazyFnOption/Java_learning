@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单练习</title>
+    <style>
+        table {
+            border: 1px solid;
+            margin: auto;
+            width: 500px;
+        }
+
+        td, th {
+            text-align: center;
+            border: 1px solid;
+        }
+
+        div {
+            text-align: center;
+            margin: 50px;
+        }
+
+        .over {
+            background-color: lightpink;
+        }
+
+        .out {
+            background-color: wheat;
+        }
+    </style>
+
+
+</head>
+<body>
+<div id="input">
+    <input type="text" id="id" placeholder="请输入编号">
+    <input type="text" id="name" placeholder="请输入姓名">
+    <input type="text" id="gender" placeholder="请输入性别">
+    <input type="button" id="btn_add" value="添加">
+</div>
+
+<table>
+    <caption>人类信息采集表</caption>
+    <tr>
+        <th><input id="firstcb" type="checkbox" name="cb"></th>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="cb"></td>
+        <td>1</td>
+        <td>王舒啸</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" onclick="delTr(this)">删除</a></td>
+    </tr>
+</table>
+
+<div>
+    <input id="selectAll" type="button" value="全选">
+    <input id="unselectAll" type="button" value="全不选">
+    <input id="reverseSelect" type="button" value="反选">
+</div>
+
+<script>
+
+    var btn_add = document.getElementById("btn_add");
+
+    btn_add.onclick = function () {
+        var ii = document.getElementById("id");
+        var _name = document.getElementById("name");
+        var gender = document.getElementById("gender");
+
+        var table = document.getElementsByTagName("table")[0];
+        table.innerHTML += "<tr>\n" +
+            "<td><input type=\"checkbox\" name=\"cb\"></td>\n" +
+            "        <td>" + ii.value + "</td>\n" +
+            "        <td>" + _name.value + "</td>\n" +
+            "        <td>" + gender.value + "</td>\n" +
+            "        <td><a href=\"javascript:void(0)\" onclick=\"delTr(this)\">删除</a> </td>\n" +
+            "    </tr>";
+
+
+        ii.value = "";
+        _name.value = "";
+        gender.value = "";
+
+    }
+
+    document.getElementById("selectAll").onclick = function (ev) {
+        var cbs = document.getElementsByName("cb");
+        for (var i = 0; i < cbs.length; i++) {
+            cbs[i].checked = true;
+        }
+    }
+
+    document.getElementById("unselectAll").onclick = function (ev) {
+        var cbs = document.getElementsByName("cb");
+        for (var i = 0; i < cbs.length; i++) {
+            cbs[i].checked = false;
+        }
+    }
+
+    document.getElementById("reverseSelect").onclick = function (ev) {
+        var cbs = document.getElementsByName("cb");
+        for (var i = 0; i < cbs.length; i++) {
+            if (cbs[i].checked == false) cbs[i].checked = true;
+            else cbs[i].checked = false
+        }
+    }
+
+    document.getElementById("firstcb").onclick = function (ev) {
+        var cbs = document.getElementsByName("cb");
+
+        for (var i = 1; i < cbs.length; i++) {
+            cbs[i].checked = cbs[0].checked;
+        }
+    }
+
+    var trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        trs[i].onmouseover = function (ev) {
+            this.className = "over";
+        }
+
+        trs[i].onmouseout = function (ev) {
+            this.className = "out";
+        }
+    }
+
+    function delTr(obj) {
+        var table = obj.parentNode.parentNode.parentNode;
+        var tr = obj.parentNode.parentNode;
+        table.removeChild(tr);
+    }
+
+
+
+</script>
+</body>
+</html>

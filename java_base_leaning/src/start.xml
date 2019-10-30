@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+
+    <users>
+
+        <user id="1">
+            <name>王舒啸</name>
+            <age>21</age>
+            <gender>male</gender>
+        </user>
+
+        <user id="2">
+            <name>wangshuxiao</name>
+            <age>22</age>
+            <gender>male</gender>
+        </user>
+
+    </users>
+
+
