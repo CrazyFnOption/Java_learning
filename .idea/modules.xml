@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Easy_Login_page/Easy_Login_page.iml" filepath="$PROJECT_DIR$/Easy_Login_page/Easy_Login_page.iml" />
       <module fileurl="file://$PROJECT_DIR$/Easy_test_Tomcat/Easy_test_Tomcat.iml" filepath="$PROJECT_DIR$/Easy_test_Tomcat/Easy_test_Tomcat.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_learning.iml" filepath="$PROJECT_DIR$/Java_learning.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_base_leaning/java_base_leaning.iml" filepath="$PROJECT_DIR$/java_base_leaning/java_base_leaning.iml" />
