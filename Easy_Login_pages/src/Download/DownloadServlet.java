@@ -17,6 +17,12 @@ public class DownloadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String filename = request.getParameter("filename");
 
+        // 修改中文文件名无法访问的问题
+        String s = request.getHeader("user-agent");
+        // 然后用一些工具类去编码相应的处理文件名
+        //filename = util.getfilename(s,filename);
+
+
         // 获取真实路径，并且更改响应头,并且获取文件类型
         ServletContext servletContext = this.getServletContext();
         String mimeType = servletContext.getMimeType(filename);
