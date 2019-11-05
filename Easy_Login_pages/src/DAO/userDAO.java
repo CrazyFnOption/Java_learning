@@ -20,5 +20,10 @@ public class userDAO extends BaseDAO<User> {
         return null;
     }
 
+    public void registered(User user) throws SQLException {
+        String sql = "insert into User (username,password) value (?,?) ";
+        update(ds.getConnection(),sql,user.getUsername(),user.getPassword());
+    }
+
 
 }

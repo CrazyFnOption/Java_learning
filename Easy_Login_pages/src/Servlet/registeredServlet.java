@@ -1,17 +1,19 @@
 package Servlet;
 
-
 import DAO.userDAO;
 import domain.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/registeredServlet")
+public class registeredServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String username = request.getParameter("username");
@@ -20,32 +22,22 @@ public class LoginServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         String checkCode = (String)session.getAttribute("checkCode");
-
         if (checkCode != null && checkCode.equalsIgnoreCase(checkcode)) {
-            User loginUser = new User(username,password);
+            User user = new User(username,password);
             userDAO dao = new userDAO();
             try {
-                User user = dao.login(loginUser);
-                if (user == null) {
-                    request.setAttribute("sp_error","不好意思，用户名密码错误");
-                    request.getRequestDispatcher("login.jsp").forward(request,response);
-                }
-                else {
-                    session.setAttribute("user",user.getUsername());
-                    response.sendRedirect(request.getContextPath() + "/success.jsp");
-                }
+                dao.registered(user);
+                session.setAttribute("registered","恭喜你注册成功！！！");
+                session.setAttribute("user",user.getUsername());
+                response.sendRedirect(request.getContextPath() + "/success.jsp");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
         else {
-            request.setAttribute("cc_error", "验证码错误");
-            request.getRequestDispatcher("login.jsp").forward(request,response);
+            request.setAttribute("cc_error","不好意思，请重新写验证码");
+            request.getRequestDispatcher("/registeredServlet").forward(request,response);
         }
-
-
-
 
     }
 
